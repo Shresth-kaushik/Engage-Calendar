@@ -73,3 +73,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ####ScreenShots##
 <img width="1383" alt="Screenshot 2024-12-15 at 12 23 24 PM" src="https://github.com/user-attachments/assets/84008b00-d1ca-4c32-a401-ac2eb6bc4dde" />
+<img width="1361" alt="Screenshot 2024-12-15 at 12 25 33 PM" src="https://github.com/user-attachments/assets/0eb0b446-89fb-42be-b02f-bfde940627e3" />
