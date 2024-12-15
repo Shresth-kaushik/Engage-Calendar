@@ -1,0 +1,250 @@
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --background-color: #f4f6f7;
+  --text-color: #2c3e50;
+  --border-color: #bdc3c7;
+  --danger-color: #e74c3c;
+  --white-color: #ffffff;
+}
+
+.admin-module {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--white-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.admin-module h1 {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  border-bottom: 3px solid var(--primary-color);
+  padding-bottom: 10px;
+}
+
+/* Sections Styling */
+.company-management,
+.communication-method-management {
+  background-color: var(--background-color);
+  padding: 25px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.company-management h2,
+.communication-method-management h2 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 10px;
+}
+
+/* Form Styling */
+.admin-module form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  background-color: var(--white-color);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.admin-module form input,
+.admin-module form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.admin-module form input:focus,
+.admin-module form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+.admin-module form textarea {
+  grid-column: 1 / -1;
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Email and Phone Management */
+.email-management,
+.phone-management {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.email-management h4,
+.phone-management h4 {
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+/* Button Styling */
+.admin-module button {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+.admin-module button:hover {
+  background-color: #2980b9;
+}
+
+.admin-module button:last-child {
+  background-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.admin-module button:last-child:hover {
+  background-color: #95a5a6;
+}
+
+.email-management button,
+.phone-management button {
+  background-color: var(--secondary-color);
+  width: 150px;
+  align-self: flex-start;
+}
+
+.email-management button:hover,
+.phone-management button:hover {
+  background-color: #27ae60;
+}
+
+/* Lists Styling */
+.company-list,
+.communication-methods-list {
+  margin-top: 20px;
+  background-color: var(--white-color);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.company-list h3,
+.communication-methods-list h3 {
+  color: var(--text-color);
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+.company-item,
+.method-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.company-actions,
+.method-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.company-actions button,
+.method-actions button {
+  padding: 5px 10px;
+  font-size: 0.9rem;
+}
+
+.company-actions button:first-child,
+.method-actions button:first-child {
+  background-color: var(--secondary-color);
+}
+
+.company-actions button:last-child,
+.method-actions button:last-child {
+  background-color: var(--danger-color);
+}
+
+.company-actions button:last-child:hover,
+.method-actions button:last-child:hover {
+  background-color: #c0392b;
+}
+
+/* Checkbox Styling */
+.admin-module label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.admin-module label input[type="checkbox"] {
+  width: auto;
+  margin-right: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-module {
+    padding: 10px;
+  }
+
+  .admin-module h1 {
+    font-size: 2rem;
+  }
+
+  .admin-module form {
+    grid-template-columns: 1fr;
+  }
+
+  .email-management,
+  .phone-management {
+    gap: 15px;
+  }
+
+  .company-list,
+  .communication-methods-list {
+    padding: 15px;
+  }
+
+  .company-item,
+  .method-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .company-actions,
+  .method-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-module h1 {
+    font-size: 1.5rem;
+  }
+
+  .admin-module form {
+    padding: 10px;
+  }
+
+  .email-management button,
+  .phone-management button {
+    width: 100%;
+  }
+}

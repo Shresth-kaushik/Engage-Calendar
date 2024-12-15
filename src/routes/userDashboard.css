@@ -1,0 +1,275 @@
+/* User Dashboard Responsive Styling */
+:root {
+  /* Color Palette */
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --background-light: #ecf0f1;
+  --text-color: #34495e;
+  --overdue-color: #e74c3c;
+  --due-today-color: #f39c12;
+  --normal-color: #2ecc71;
+
+  /* Transitions */
+  --transition-speed: 0.3s;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-light);
+}
+
+.user-dashboard {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.user-dashboard h1 {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+/* Notifications Section */
+.notifications {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--secondary-color);
+}
+
+.notifications h2,
+.notifications h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.overdue-communications {
+  background-color: rgba(231, 76, 60, 0.05);
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.overdue-item {
+  color: var(--overdue-color);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.overdue-item::before {
+  content: "⚠️";
+  display: inline-block;
+}
+
+/* Companies Grid */
+.companies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.company-row {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: all var(--transition-speed) ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.company-row:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Status Color Coding */
+.company-row.overdue {
+  border-left: 4px solid var(--overdue-color);
+  background-color: rgba(231, 76, 60, 0.05);
+}
+
+.company-row.due-today {
+  border-left: 4px solid var(--due-today-color);
+  background-color: rgba(243, 156, 18, 0.05);
+}
+
+.company-row.normal {
+  border-left: 4px solid var(--normal-color);
+  background-color: rgba(46, 204, 113, 0.05);
+}
+
+/* Communication Items */
+.last-communications,
+.next-communication {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #f1f3f5;
+  border-radius: 6px;
+}
+
+.communication-item {
+  position: relative;
+  padding: 0.5rem;
+  margin: 0.25rem 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 4px;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.communication-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Communication Tooltip */
+.communication-tooltip {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-width: 250px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Communication Modal */
+.communication-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.communication-modal form {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.communication-modal select,
+.communication-modal input,
+.communication-modal textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  transition: border-color var(--transition-speed) ease;
+}
+
+.communication-modal select:focus,
+.communication-modal input:focus,
+.communication-modal textarea:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.communication-modal button {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all var(--transition-speed) ease;
+}
+
+.communication-modal button[type="submit"] {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.communication-modal button[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+.communication-modal button[type="button"] {
+  background-color: #f1f3f5;
+  color: var(--primary-color);
+}
+
+.communication-modal button[type="button"]:hover {
+  background-color: #e9ecef;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .user-dashboard {
+    padding: 1rem;
+  }
+
+  .companies-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .communication-modal form {
+    width: 90%;
+    margin: 0 5%;
+    padding: 1.5rem;
+  }
+}
+
+/* Accessibility Enhancements */
+input[type="checkbox"] {
+  accent-color: var(--secondary-color);
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background-color: white;
+  }
+
+  .user-dashboard {
+    box-shadow: none;
+    border: none;
+  }
+
+  .communication-modal {
+    display: none;
+  }
+}
